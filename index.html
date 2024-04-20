@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <card>
+            <template v-slot:header>
+                <div class="header">Карточка фитнес тренеровок</div>
+            </template>
+            <template v-slot:content>
+                <img class="team-logo" width="250" height="250" src="https://adresnie-tablichki.ru/upload/category/bannery/sportzal/kachalka_sportzal.jpg" alt="Fitness Team Logo">
+                <p><strong>Спорт: </strong>Фитнес тренирвки</p>
+                <p><strong>Для чего нужены: </strong>Для укрепления мышц</p>
+                <p><strong>Теория тренеровки: </strong>Составление идевидульных тренировачных программ</p>
+                <p><strong>Тренера: </strong>Присуствуют и подскажут по технике выполнения</p>
+                <p><strong>Выигранные чемпионаты: </strong>10</p>
+            </template>
+        </card>
+    </div>
+    
+    <script>
+        Vue.component('card', {
+            template: `
+            <div class="card">
+              <slot name="header"></slot>
+              <hr>
+              <slot name="content"></slot>
+            </div>
+          `
+        });
+
+        new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>
